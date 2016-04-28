@@ -1,6 +1,7 @@
 console.log('in config/routes.js')
 
-var models = require('../controllers/users.js'); // do this for each model
+var users = require('../controllers/users.js');
+var buckets = require('../controllers/buckets.js');
 
 module.exports = function(app){
 	app.get('/users', function(req, res){
@@ -11,7 +12,22 @@ module.exports = function(app){
 		console.log('getting one user, in server/routes')
 		users.show(req, res)
 	})
-
+	app.post('/login', function(req, res){
+		users.login(req, res)
+	})
+	app.post('/users/all', function(req, res){
+		users.all(req, res)
+	})
+	app.post('/bucket/new', function(req, res){
+		buckets.create(req, res)
+	})
+	app.get('/buckets/:id', function(req, res){
+		console.log('in server routes')
+		buckets.index(req, res)
+	})
+	app.post('/buckets/update', function(req, res){
+		buckets.update(req, res)
+	})
 
 
 

@@ -1,0 +1,32 @@
+<div ng-controller="bucketsController">
+	Bucket List | <a href="#/">Home</a> | <a href="#/logout">Logout</a>
+	<br><br>
+
+	<h1>Welcome, {{currentuser.name}}</h1>
+	<input type="text" placeholder="Title" ng-model="new_bucket_item.title" required>
+	<input type="text" placeholder="Description" ng-model="new_bucket_item.description" required>
+	<select name="other_users" ng-model="new_bucket_item.users">
+		<option ng-repeat="user in users" value="{{user._id}}">
+			{{user.name}}
+		</option>
+	</select>
+	<input type="submit" value="Add to List" ng-click="createItem(currentuser._id, new_bucket_item)">
+	<div class="errors">
+		{{error}}
+	</div>
+<br>
+{{buckets}}
+	<h3>Before I die I want to:</h3>
+	<p ng-repeat="bucket in buckets.bucket_items">
+		<input type="checkbox" checked="checked" ng-if="bucket.completion" disabled>
+		<input type="checkbox" ng-if="!bucket.completion" ng-click="toggleCompletion(bucket._id)">
+		{{buckets.name}}: {{bucket.title}} -- {{bucket.description}} -- {{bucket.createdAt}}
+
+	</p>
+
+
+	<h3>List of users:</h3>
+	<p ng-repeat="user in users">
+		<a href="#/user/{{user._id}}">{{user.name}}</a>
+	</p>
+</div>

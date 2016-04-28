@@ -1,0 +1,24 @@
+<div class="container" ng-controller="pageController">
+
+<h1>{{pageUser.name}}'s Bucket List</h1>
+
+
+<h3>Done</h3>
+<p ng-repeat="bucket in pageUser.bucket_items" ng-if="bucket.completion === true">
+	<input type="checkbox" checked="checked" ng-if="bucket.completion" disabled>
+	{{buckets.name}}: {{bucket.title}} -- {{bucket.description}} -- {{bucket.createdAt}}
+
+</p>
+
+
+<h3>Pending</h3>
+<p ng-repeat="bucket in pageUser.bucket_items"
+	ng-if="bucket.completion === false">
+	<input type="checkbox" checked="checked" ng-if="bucket.completion" disabled>
+	<input type="checkbox" ng-if="bucket.completion === false" disabled>
+	{{buckets.name}}: {{bucket.title}} -- {{bucket.description}} -- {{bucket.createdAt}}
+
+</p>
+
+
+</div>

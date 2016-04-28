@@ -1,0 +1,10 @@
+<div class="container" ng-controller="usersController">
+	<h1>Bucket Lists</h1>
+
+	<label for="name">Name: </label>
+	<input type="text" name="name" ng-model="new_user.name" ng-minLength="2" required>
+	<input type="submit" name="submit" ng-click="login(new_user.name)">
+	<div class="errors" ng-bind="error">
+
+	</div>
+</div>
