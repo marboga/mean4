@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+ <html ng-app="MyApp"> <!-- change MyApp to project name -->
+	<head>
+		<meta charset="utf-8">
+		<title>Title</title>
+		<link rel="stylesheet" href="/static/bootstrap.css">
+		<link href='https://fonts.googleapis.com/css?family=PT+Serif:400,700,700italic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/static/style.css">
+		<!-- this only if you want to do time stamps -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
+		<script type="text/javascript" src="/static/angular.js"></script>
+		<script type="text/javascript" src="/static/angular-route.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/angular-moment/0.9.0/angular-moment.min.js"></script>
+		<script type="text/javascript" src="./js/config/app.js"></script>
+
+		<!-- factories go first -->
+		<script type="text/javascript" src="./js/factories/userFactory.js"></script>
+
+		<!-- then controllers -->
+		<script type="text/javascript" src="./js/controllers/usersController.js"></script>
+
+
+		<!-- routes last -->
+		<script type="text/javascript" src="./js/config/routes.js"></script>
+		<script type="text/javascript">
+
+		</script>
+	</head>
+	<body>
+		<!-- this so we actually can use our links -->
+		<div ng-controller="usersController">
+			<a href="#/">Home</a> | <a href="#/">Users</a>
+			<br><br>
+		</div>
+		<!-- this so we can show our partials -->
+	  <div ng-view=''>
+	  </div>
+	</body>
+</html>
