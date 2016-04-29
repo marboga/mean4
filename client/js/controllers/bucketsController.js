@@ -1,6 +1,6 @@
 console.log('bucketsController loaded')
 
-MyApp.controller('bucketsController', function($scope, userFactory, bucketFactory, $location){
+MyApp.controller('bucketsController', function($scope, userFactory, bucketFactory, $location, $timeout){
 	$scope.currentuser = userFactory.user;
 	console.log('current user: ', $scope.user)
 	$scope.error = ""
@@ -78,7 +78,7 @@ MyApp.controller('bucketsController', function($scope, userFactory, bucketFactor
 		bucketFactory.create(user, new_item, function(data){
 			console.log('bucket whoo')
 		})
-		getBuckets()
+		$timeout(getBuckets, 300)
 	}
 
 	$scope.toggleCompletion = function(id){
